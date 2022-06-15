@@ -12,3 +12,10 @@
 #start, #status{
     font-size:22px;
 }
+.copy_right_footer{
+    position:sticky;
+    width:100%;
+}
+.modal-dialog{
+    width:90%;
+}
