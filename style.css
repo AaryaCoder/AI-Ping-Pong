@@ -19,3 +19,7 @@
 .modal-dialog{
     width:90%;
 }
+canvas{
+    border: 5px solid white;
+    border-radius: 18px;
+}
