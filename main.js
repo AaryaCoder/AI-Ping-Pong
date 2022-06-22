@@ -21,6 +21,9 @@ var ball = {
     dy:3
 }
 
+rightWristX="";
+rightWristY="";
+scorerightWrist=0;
 function setup(){
   var canvas =  createCanvas(700,600);
   canvas.parent('canvas');
@@ -35,13 +38,24 @@ function modelLoaded(){
   console.log("poseNet is initialized!");
 }
 function gotPoses(results){
-  
+  if(results.length>0){
+    rightWristX=results[0].pose.wrist.x;
+    rightWristY=results[0].pose.wrist.y;
+    console.log("rightWristX="+rightWristX+"rightWristY="+rightWristY);
+    scorerightWrist=results[0].pose.keypoints[10].score;
+  }
 }
 
 
 function draw(){
 
  background(0); 
+
+ if(scorerightWrist>0.2){
+  fill("#e36e56");
+  stroke("#e36e56");
+  circle(rightWristX,rightWristY,30);
+ }
 
  fill("black");
  stroke("black");
